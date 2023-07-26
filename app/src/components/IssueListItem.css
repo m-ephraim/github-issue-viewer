@@ -1,0 +1,9 @@
+.issue-item {
+    text-align: left;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.issue-item.selected {
+    background-color: #defcd2;
+}
