@@ -15,7 +15,11 @@ function App() {
       const response = await fetch(`${API_URL}/issues`);
       // TODO: Handle unsuccessfull response
       const json = await response.json();
-      setIssues(json)
+      if(json.error) {
+        setIssues([{ id: "error", number: "error", title: json.error}]);
+      } else {
+        setIssues(json);
+      }
     }
     getIssues()
   }, []);
