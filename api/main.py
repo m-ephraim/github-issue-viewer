@@ -6,6 +6,8 @@ from requests.exceptions import RequestException
 
 
 app = FastAPI(title="Proxy to GitHub Issues")
+
+# API running on different port than UI, so allow all origins for CORS
 origins = ["*"]
 
 app.add_middleware(
@@ -17,10 +19,6 @@ app.add_middleware(
 )
 
 API_URL = "https://api.github.com"
-
-@app.get("/")
-def read_root():
-    return {"hello": "world"}
 
 def make_request(url: str):
     """Make a get request to the GitHub API
